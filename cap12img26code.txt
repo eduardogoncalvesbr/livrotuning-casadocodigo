@@ -1,0 +1,12 @@
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      383      0.06       0.29       4672       4694          0        5729
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      385      0.06       0.29       4672       4694          0        5729
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 48  
+Number of plan statistics captured: 1

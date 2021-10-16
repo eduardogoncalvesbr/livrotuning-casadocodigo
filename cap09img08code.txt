@@ -1,0 +1,27 @@
+Execution Plan
+----------------------------------------------------------------------
+| Id  | Operation              | Name              | Starts | A-Rows |
+----------------------------------------------------------------------
+|   0 | SELECT STATEMENT       |                   |      1 |      0 |
+|*  1 |  FILTER                |                   |      1 |      0 |
+|   2 |   NESTED LOOPS ANTI SNA|                   |      0 |      0 |
+|   3 |    INDEX FULL SCAN     | DEPT_ID_PK        |      0 |      0 |
+|*  4 |    INDEX RANGE SCAN    | EMP_DEPARTMENT_IX |      0 |      0 |
+|*  5 |   TABLE ACCESS FULL    | EMPLOYEES         |      1 |      1 |
+----------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter( IS NULL)
+   4 - access("DEPARTMENT_ID"="DEPARTMENT_ID")
+   5 - filter("DEPARTMENT_ID" IS NULL)
+
+/*
+   Comentário do autor:
+
+   1 - filter( IS NULL) foi igual a (saída gerando pelo comando explain):
+
+   1 - filter( NOT EXISTS (SELECT 0 FROM "EMPLOYEES" "EMPLOYEES" WHERE
+              "DEPARTMENT_ID" IS NULL))
+*/

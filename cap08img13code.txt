@@ -1,0 +1,24 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 3077898360
+
+-----------------------------------------------------------------------------
+| Id  | Operation         | Name    | Rows  | Bytes | Cost (%CPU)| Time     |
+-----------------------------------------------------------------------------
+|   0 | SELECT STATEMENT  |         |     4 |    56 |     3   (0)| 00:00:01 |
+|   1 |  TABLE ACCESS FULL| REGIONS |     4 |    56 |     3   (0)| 00:00:01 |
+-----------------------------------------------------------------------------
+
+Estatísticas
+----------------------------------------------------------
+         66  recursive calls
+          0  db block gets
+         63  consistent gets
+          2  physical reads
+          0  redo size
+        731  bytes sent via SQL*Net to client
+        523  bytes received via SQL*Net from client
+          2  SQL*Net roundtrips to/from client
+          6  sorts (memory)
+          0  sorts (disk)
+          4  rows processed

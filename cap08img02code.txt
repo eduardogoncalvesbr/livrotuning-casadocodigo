@@ -1,0 +1,20 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 2056577954
+
+---------------------------------------------------------
+| Id  | Operation                   | Name              |
+---------------------------------------------------------
+|   0 | SELECT STATEMENT            |                   |
+|   1 |  TABLE ACCESS BY INDEX ROWID| EMPLOYEES         |
+|*  2 |   INDEX RANGE SCAN          | EMP_DEPARTMENT_IX |
+---------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("DEPARTMENT_ID"=40)
+
+Note
+-----
+   - rule based optimizer used (consider using cbo)

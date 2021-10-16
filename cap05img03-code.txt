@@ -1,0 +1,7 @@
+Execution Plan
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=CHOOSE (Cost=3 Card=1 Bytes=51)
+   1    0   HASH JOIN (Cost=3 Card=1 Bytes=51)
+   2    1     TABLE ACCESS (BY INDEX ROWID) OF 'EMPLOYEES' (Cost=1 Card=1 Bytes=38)
+   3    2       INDEX (RANGE SCAN) OF 'EMP_EMP_ID_PK' (UNIQUE) (Cost=1 Card=1)
+   4    1     TABLE ACCESS (FULL) OF 'DEPARTMENTS' (Cost=1 Card=41 Bytes=533)

@@ -1,0 +1,22 @@
+Execution Plan
+----------------------------------------------------
+| Id  | Operation                    | Name        |
+----------------------------------------------------
+|   0 | SELECT STATEMENT             |             |
+|*  1 |  FILTER                      |             |
+|   2 |   TABLE ACCESS FULL          | EMPLOYEES   |
+|*  3 |   TABLE ACCESS BY INDEX ROWID| DEPARTMENTS |
+|*  4 |    INDEX UNIQUE SCAN         | DEPT_ID_PK  |
+|*  5 |   TABLE ACCESS FULL          | JOB_HISTORY |
+----------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter( NOT EXISTS (SELECT /*+ NO_UNNEST */ 0 FROM "DEPARTMENTS"
+              "D" WHERE "D"."DEPARTMENT_ID"=:B1 AND "D"."DEPARTMENT_NAME"='Sales')
+              AND  NOT EXISTS (SELECT /*+ NO_UNNEST */ 0 FROM "JOB_HISTORY" "J" WHERE
+              TO_CHAR("J"."EMPLOYEE_ID")=TO_CHAR(:B2)))
+   3 - filter("D"."DEPARTMENT_NAME"='Sales')
+   4 - access("D"."DEPARTMENT_ID"=:B1)
+   5 - filter(TO_CHAR("J"."EMPLOYEE_ID")=TO_CHAR(:B1))

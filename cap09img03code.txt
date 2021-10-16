@@ -1,0 +1,15 @@
+Execution Plan
+---------------------------------------------------------------------
+| Id  | Operation                    | Name       | Starts | A-Rows |
+---------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |            |      1 |      0 |
+|*  1 |  FILTER                      |            |      1 |      0 |
+|   2 |   TABLE ACCESS BY INDEX ROWID| EMPLOYEES  |      0 |      0 |
+|*  3 |    INDEX RANGE SCAN          | EMP_JOB_IX |      0 |      0 |
+---------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter(NULL IS NOT NULL)
+   3 - access("JOB_ID"='SALESMAN')

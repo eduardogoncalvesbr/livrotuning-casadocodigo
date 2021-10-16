@@ -1,0 +1,20 @@
+Execution Plan
+
+    ID OPERATION            OPTIONS              OBJECT_NAME            OPTIMIZER            COST CHILD_NUMBER
+------ -------------------- -------------------- ---------------------- -------------- ---------- ------------
+     0 SELECT STATEMENT                                                 ALL_ROWS                5            0
+     1  NESTED LOOPS                                                                                         0
+     2   NESTED LOOPS                                                                           5            0
+     3    NESTED LOOPS                                                                          4            0
+     4     NESTED LOOPS                                                                         3            0
+     5      NESTED LOOPS                                                                        3            0
+     6       TABLE ACCESS   FULL                 DEPARTMENTS                                    2            0
+     7       TABLE ACCESS   BY INDEX ROWID       LOCATIONS                                      1            0
+     8        INDEX         UNIQUE SCAN          LOC_ID_PK                                      0            0
+     9      INDEX           UNIQUE SCAN          COUNTRY_C_ID_PK                                0            0
+    10     TABLE ACCESS     BY INDEX ROWID       REGIONS                                        1            0
+    11      INDEX           UNIQUE SCAN          REG_ID_PK                                      0            0
+    12    INDEX             RANGE SCAN           EMP_DEPARTMENT_IX                              0            0
+    13   TABLE ACCESS       BY INDEX ROWID       EMPLOYEES                                      1            0
+
+14 linhas selecionadas.

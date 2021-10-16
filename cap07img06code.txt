@@ -1,0 +1,15 @@
+Execution Plan
+--------------------------------------------------------------------------------------------
+| Id  | Operation                   | Name              | Rows | Bytes|Cost(%CPU)|    Time|
+--------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT            |                   |    19|   722|    3  (0)| 00:00:01|
+|   1 |  TABLE ACCESS BY INDEX ROWID| EMPLOYEES         |    10|   220|    1  (0)| 00:00:01|
+|   2 |   NESTED LOOPS              |                   |    19|   722|    3  (0)| 00:00:01|
+|*  3 |    TABLE ACCESS FULL        | DEPARTMENTS       |     2|    32|    2  (0)| 00:00:01|
+|*  4 |    INDEX RANGE SCAN         | EMP_DEPARTMENT_IX |    10|      |    0  (0)| 00:00:01|
+--------------------------------------------------------------------------------------------
+ 
+Predicate Information (identified by operation id):
+---------------------------------------------------
+   3 - filter("D"."DEPARTMENT_NAME"='Marketing' OR "D"."DEPARTMENT_NAME"='Sales')
+   4 - access("E"."DEPARTMENT_ID"="D"."DEPARTMENT_ID") 

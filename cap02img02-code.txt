@@ -1,0 +1,4 @@
+Plano de Execução
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=RULE
+   1    0   TABLE ACCESS (FULL) OF 'DEPARTMENTS' (TABLE)

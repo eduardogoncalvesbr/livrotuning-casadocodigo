@@ -1,0 +1,8 @@
+Plano de Acesso
+--------------------------------------------------------------------------------
+SELECT STATEMENT   custo =
+   NESTED LOOPS
+      NESTED LOOPS
+         TABLE ACCESS FULL DEPARTMENTS
+         INDEX RANGE SCAN EMP_DEPARTMENT_IX
+      TABLE ACCESS BY INDEX ROWID EMPLOYEES

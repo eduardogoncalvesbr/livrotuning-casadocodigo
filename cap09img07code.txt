@@ -1,0 +1,15 @@
+Execution Plan
+-----------------------------------------
+| Id  | Operation          | Name       |
+-----------------------------------------
+|   0 | SELECT STATEMENT   |            |
+|*  1 |  INDEX FULL SCAN   | DEPT_ID_PK |
+|*  2 |   TABLE ACCESS FULL| EMPLOYEES  |
+-----------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter( NOT EXISTS (SELECT 0 FROM "EMPLOYEES" "EMPLOYEES" WHERE
+              LNNVL("DEPARTMENT_ID"<>:B1)))
+   2 - filter(LNNVL("DEPARTMENT_ID"<>:B1))

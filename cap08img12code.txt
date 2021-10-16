@@ -1,0 +1,33 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 1295177975
+
+---------------------------------------------------------------------------------------------------------
+| Id  | Operation                     | Name                    | Rows  | Bytes | Cost (%CPU)| Time     |
+---------------------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT              |                         |     1 |    88 |     3  (34)| 00:00:01 |
+|   1 |  MERGE JOIN CARTESIAN         |                         |     1 |    88 |     3  (34)| 00:00:01 |
+|   2 |   NESTED LOOPS                |                         |       |       |            |          |
+|   3 |    NESTED LOOPS               |                         |     1 |    58 |     3  (34)| 00:00:01 |
+|   4 |     VIEW                      | index$_join$_003        |    10 |   200 |     3  (34)| 00:00:01 |
+|*  5 |      HASH JOIN                |                         |       |       |            |          |
+|   6 |       INDEX FAST FULL SCAN    | JHIST_EMP_ID_ST_DATE_PK |    10 |   200 |     1   (0)| 00:00:01 |
+|   7 |       INDEX FAST FULL SCAN    | JHIST_JOB_IX            |    10 |   200 |     1   (0)| 00:00:01 |
+|*  8 |     INDEX UNIQUE SCAN         | EMP_EMP_ID_PK           |     1 |       |     0   (0)| 00:00:01 |
+|*  9 |    TABLE ACCESS BY INDEX ROWID| EMPLOYEES               |     1 |    38 |     0   (0)| 00:00:01 |
+|  10 |   BUFFER SORT                 |                         |     1 |    30 |     3  (34)| 00:00:01 |
+|  11 |    TABLE ACCESS BY INDEX ROWID| DEPARTMENTS             |     1 |    30 |     0   (0)| 00:00:01 |
+|* 12 |     INDEX UNIQUE SCAN         | DEPT_ID_PK              |     1 |       |     0   (0)| 00:00:01 |
+---------------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   5 - access(ROWID=ROWID)
+   8 - access("E"."EMPLOYEE_ID"="H"."EMPLOYEE_ID")
+   9 - filter("E"."DEPARTMENT_ID"=10)
+  12 - access("D"."DEPARTMENT_ID"=10)
+
+Note
+-----
+   - dynamic sampling used for this statement (level=2)

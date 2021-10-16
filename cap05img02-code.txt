@@ -1,0 +1,12 @@
+Execution Plan
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=CHOOSE (Cost=2 Card=1 Bytes=71)
+   1    0   MERGE JOIN (CARTESIAN) (Cost=2 Card=1 Bytes=71)
+   2    1     MERGE JOIN (CARTESIAN) (Cost=2 Card=1 Bytes=58)
+   3    2       TABLE ACCESS (BY INDEX ROWID) OF 'JOB_HISTORY' (Cost=1 Card=1 Bytes=20)
+   4    3         INDEX (RANGE SCAN) OF 'JHIST_EMPLOYEE_IX' (NON-UNIQUE) (Cost=1 Card=1)
+   5    2       BUFFER (SORT) (Cost=1 Card=1 Bytes=38)
+   6    5         TABLE ACCESS (BY INDEX ROWID) OF 'EMPLOYEES' (Cost=1 Card=1 Bytes=38)
+   7    6           INDEX (UNIQUE SCAN) OF 'EMP_EMP_ID_PK' (UNIQUE)
+   8    1     BUFFER (SORT) (Cost=1 Card=1 Bytes=13)
+   9    8       INDEX (UNIQUE SCAN) OF 'DEPT_ID_PK' (UNIQUE)

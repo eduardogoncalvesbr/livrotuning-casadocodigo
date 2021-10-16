@@ -1,0 +1,9 @@
+Execution Plan
+-------------------------------------------------------------------------------------------
+|Id| Operation                         | Name                |Rows|Bytes|Cost (%CPU)| Time|
+-------------------------------------------------------------------------------------------
+| 0| SELECT STATEMENT                  |                     |    |    |412 (100)|        |
+| 1|  TABLE ACCESS BY INDEX ROWID BATCHED|CUSTOMERS          |3461|638K|412   (2)|00:00:01|
+| 2|   BITMAP CONVERSION TO ROWIDS     |                     |    |    |         |        |
+|*3|    BITMAP INDEX SINGLE VALUE      |CUSTOMERS_MARITAL_BIX|    |    |         |        |
+-------------------------------------------------------------------------------------------

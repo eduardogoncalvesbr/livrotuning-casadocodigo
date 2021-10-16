@@ -1,0 +1,29 @@
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.01       0.04          0         24          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch      383      0.26       0.29       4672       4694          0        5729
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total      385      0.28       0.33       4672       4718          0        5729
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 48  
+Number of plan statistics captured: 1
+
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+      5729       5729       5729  SORT ORDER BY (cr=4694 pr=4672 pw=0 time=283905 us cost=2654 size=696399 card=14817)
+      5729       5729       5729   HASH GROUP BY (cr=4694 pr=4672 pw=0 time=267335 us cost=2654 size=696399 card=14817)
+      5729       5729       5729    HASH JOIN  (cr=4694 pr=4672 pw=0 time=266120 us cost=2301 size=696399 card=14817)
+      1075       1075       1075     TABLE ACCESS FULL EMPLOYEES (cr=17 pr=0 pw=0 time=70538 us cost=6 size=22575 card=1075)
+      5729       5729       5729     VIEW  VW_GBC_9 (cr=4677 pr=4672 pw=0 time=255645 us cost=2294 size=385242 card=14817)
+      5729       5729       5729      HASH GROUP BY (cr=4677 pr=4672 pw=0 time=255262 us cost=2294 size=503778 card=14817)
+    288760     288760     288760       HASH JOIN  (cr=4677 pr=4672 pw=0 time=144252 us cost=1278 size=9817840 card=288760)
+        23         23         23        TABLE ACCESS FULL LOCATIONS (cr=2 pr=0 pw=0 time=402 us cost=2 size=276 card=23)
+    288760     288760     288760        TABLE ACCESS FULL TIMESHEET (cr=4675 pr=4672 pw=0 time=58345 us cost=1275 size=6352720 card=288760)
+
+********************************************************************************
+
+SQL ID: cdxcgw0zwfam3 Plan Hash: 0
+...

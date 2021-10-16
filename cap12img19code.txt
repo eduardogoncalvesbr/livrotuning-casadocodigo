@@ -1,0 +1,30 @@
+Outline Data
+-------------
+
+  /*+
+      BEGIN_OUTLINE_DATA
+      IGNORE_OPTIM_EMBEDDED_HINTS
+      OPTIMIZER_FEATURES_ENABLE('11.2.0.2')
+      DB_VERSION('11.2.0.2')
+      ALL_ROWS
+      OUTLINE_LEAF(@"SEL$1")
+      INDEX_RS_ASC(@"SEL$1" "D"@"SEL$1" ("DEPARTMENTS"."DEPARTMENT_ID"))
+      INDEX_RS_ASC(@"SEL$1" "E"@"SEL$1" ("EMPLOYEES"."DEPARTMENT_ID"))
+      LEADING(@"SEL$1" "D"@"SEL$1" "E"@"SEL$1")
+      USE_NL(@"SEL$1" "E"@"SEL$1")
+      END_OUTLINE_DATA
+  */
+
+Peeked Binds (identified by position):
+--------------------------------------
+...
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - access("D"."DEPARTMENT_ID"=:W_DEPARTMENT_ID)
+   4 - filter("E"."JOB_ID"=:W_JOB_ID)
+   5 - access("E"."DEPARTMENT_ID"=:W_DEPARTMENT_ID)
+
+Column Projection Information (identified by operation id):
+-----------------------------------------------------------

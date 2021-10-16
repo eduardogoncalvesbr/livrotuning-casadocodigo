@@ -1,0 +1,16 @@
+Execution Plan
+--------------------------------------------------------------------------------
+| Id  | Operation          | Name      | Rows  | Bytes | Cost (%CPU)| Time     |
+--------------------------------------------------------------------------------
+|  0 | SELECT STATEMENT    |           |       |       |     7 (100)|          |
+|  1 |  HASH GROUP BY      |           |   168 |  3192 |     7  (29)| 00:00:01 |
+|* 2 |   HASH JOIN OUTER   |           |   318 |  6042 |     6  (17)| 00:00:01 |
+|* 3 |    TABLE ACCESS FULL| CUSTOMERS |   260 |  3900 |     3   (0)| 00:00:01 |
+|* 4 |    TABLE ACCESS FULL| ORDERS    |   105 |   420 |     2   (0)| 00:00:01 |
+--------------------------------------------------------------------------------
+ 
+Predicate Information (identified by operation id):
+---------------------------------------------------
+   2 - access("C"."CUSTOMER_ID"="O"."CUSTOMER_ID")
+   3 - filter("C"."CREDIT_LIMIT">1000)
+   4 - filter("O"."CUSTOMER_ID">0)

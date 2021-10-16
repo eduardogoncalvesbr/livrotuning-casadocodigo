@@ -1,0 +1,13 @@
+Execution Plan
+------------------------------------------------------------
+| Id  | Operation          | Name        | Starts | A-Rows |
+------------------------------------------------------------
+|   0 | SELECT STATEMENT   |             |      1 |     15 |
+|*  1 |  COUNT STOPKEY     |             |      1 |     15 |
+|   2 |   TABLE ACCESS FULL| DEPARTMENTS |      1 |     15 |
+------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter(ROWNUM<=15)

@@ -1,0 +1,14 @@
+Execution Plan
+---------------------------------------------------------------------
+| Id  | Operation                   | Name        | Starts | A-Rows |
+---------------------------------------------------------------------
+|   0 | SELECT STATEMENT            |             |      1 |    107 |
+|   1 |  TABLE ACCESS BY INDEX ROWID| DEPARTMENTS |     12 |     11 |
+|*  2 |   INDEX UNIQUE SCAN         | DEPT_ID_PK  |     12 |     11 |
+|   3 |  TABLE ACCESS FULL          | EMPLOYEES   |      1 |    107 |
+---------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   2 - access("D"."DEPARTMENT_ID"=:B1)

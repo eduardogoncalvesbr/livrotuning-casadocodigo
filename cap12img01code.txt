@@ -1,0 +1,6 @@
+Plano de Acesso
+--------------------------------------------------------------------------------
+SELECT STATEMENT   custo = 5
+   HASH JOIN
+      TABLE ACCESS FULL DEPARTMENTS
+      TABLE ACCESS FULL EMPLOYEES

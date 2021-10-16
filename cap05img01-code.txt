@@ -1,0 +1,7 @@
+Execution Plan
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=CHOOSE
+   1    0   TABLE ACCESS (BY INDEX ROWID) OF 'EMPLOYEES'
+   2    1     NESTED LOOPS
+   3    2       TABLE ACCESS (FULL) OF 'DEPARTMENTS'
+   4    2       INDEX (RANGE SCAN) OF 'EMP_DEPARTMENT_IX' (NON-UNIQUE)

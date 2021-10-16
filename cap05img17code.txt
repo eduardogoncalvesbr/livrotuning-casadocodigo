@@ -1,0 +1,16 @@
+Plan hash value: 4129722845
+------------------------------------------------------------------------------------------
+| Id  | Operation        | Options      | Object      |Rows| Bytes |Cost(%CPU)| Time     |
+------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT |              |             |  1 |    99 |    6 (0) | 00:00:01 |
+|*  1 |  HASH JOIN       | OUTER        |             |  1 |    99 |    6 (0) | 00:00:01 |
+|   2 |   MERGE JOIN     | CARTESIAN    |             |  1 |    61 |    4 (0) | 00:00:01 |
+|   3 |    TABLE ACCESS  | STORAGE FULL | DEPARTMENTS |  1 |    30 |    2 (0) | 00:00:01 |
+|   4 |    BUFFER        | SORT         |             |  1 |    31 |    2 (0) | 00:00:01 |
+|   5 |     TABLE ACCESS | STORAGE FULL | JOB_HISTORY |  1 |    31 |    2 (0) | 00:00:01 |
+|   6 |   TABLE ACCESS   | STORAGE FULL | EMPLOYEES   |  1 |    38 |    2 (0) | 00:00:01 |
+------------------------------------------------------------------------------------------
+Predicate Information (identified by operation id):
+---------------------------------------------------
+1 - access("D"."DEPARTMENT_ID"="E"."DEPARTMENT_ID"(+)
+       AND "J"."EMPLOYEE_ID"="E"."EMPLOYEE_ID"(+))

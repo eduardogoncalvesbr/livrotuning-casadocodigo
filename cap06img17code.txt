@@ -1,0 +1,12 @@
+Execution Plan
+-------------------------------------------------------------------------------------------
+|Id| Operation                         | Name               |Rows|Bytes|Cost(%CPU)| Time  |
+-------------------------------------------------------------------------------------------
+| 0| SELECT STATEMENT                  |                    |    |     |288 (100)|        |
+| 1|  TABLE ACCESS BY INDEX ROWID BATCHED|CUSTOMERS         |1802|37842|288   (1)|00:00:01|
+| 2|   BITMAP CONVERSION TO ROWIDS     |                    |    |     |         |        |
+| 3|    BITMAP AND                     |                    |    |     |         |        |
+|*4|     BITMAP INDEX SINGLE VALUE     |CUSTOMERS_GENDER_BIX|    |     |         |        |
+| 5|     BITMAP MERGE                  |                    |    |     |         |        |
+|*6|      BITMAP INDEX RANGE SCAN      |CUSTOMERS_YOB_BIX   |    |     |         |        |
+-------------------------------------------------------------------------------------------

@@ -1,0 +1,25 @@
+Plano de Execução
+----------------------------------------------------------
+Plan hash value: 1323567469
+
+------------------------------------------------------------------------------------------------
+| Id | Operation                    | Name              | Rows | Bytes | Cost (%CPU)| Time     |
+------------------------------------------------------------------------------------------------
+|  0 | SELECT STATEMENT             |                   |    2 |   162 |     2   (0)| 00:00:01 |
+|  1 |  NESTED LOOPS                |                   |    2 |   162 |     2   (0)| 00:00:01 |
+|  2 |   TABLE ACCESS BY INDEX ROWID| DEPARTMENTS       |    1 |    30 |     1   (0)| 00:00:01 |
+|* 3 |    INDEX UNIQUE SCAN         | DEPT_ID_PK        |    1 |       |     1   (0)| 00:00:01 |
+|* 4 |   TABLE ACCESS BY INDEX ROWID| EMPLOYEES         |    2 |   102 |     1   (0)| 00:00:01 |
+|* 5 |    INDEX RANGE SCAN          | EMP_DEPARTMENT_IX |    1 |       |     1   (0)| 00:00:01 |
+------------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - access("D"."DEPARTMENT_ID"=60)
+   4 - filter("E"."SALARY">=1000 AND "E"."SALARY"<=4500)
+   5 - access("E"."DEPARTMENT_ID"=60)
+
+Note
+-----
+   - dynamic sampling used for this statement (level=2)

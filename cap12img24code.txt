@@ -1,0 +1,5 @@
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+       106        106        106  HASH JOIN  (cr=14 pr=0 pw=0 time=167 us cost=5 size=7208 card=106)
+        27         27         27   TABLE ACCESS FULL DEPARTMENTS (cr=3 pr=0 pw=0 time=16 us cost=2 size=810 card=27)
+       107        107        107   TABLE ACCESS FULL EMPLOYEES (cr=11 pr=0 pw=0 time=10 us cost=2 size=4066 card=107)

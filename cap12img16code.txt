@@ -1,0 +1,18 @@
+Plan hash value: 1323567469
+
+----------------------------------------------------------------------------------
+| Id  | Operation                    | Name              | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |                   |     2 (100)|          |
+|   1 |  NESTED LOOPS                |                   |     2   (0)| 00:00:01 |
+|   2 |   TABLE ACCESS BY INDEX ROWID| DEPARTMENTS       |     1   (0)| 00:00:01 |
+|*  3 |    INDEX UNIQUE SCAN         | DEPT_ID_PK        |     0   (0)|          |
+|   4 |   TABLE ACCESS BY INDEX ROWID| EMPLOYEES         |     1   (0)| 00:00:01 |
+|*  5 |    INDEX RANGE SCAN          | EMP_DEPARTMENT_IX |     0   (0)|          |
+----------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   3 - access("D"."DEPARTMENT_ID"=30)
+   5 - access("E"."DEPARTMENT_ID"=30)

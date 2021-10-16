@@ -1,0 +1,4 @@
+Plano de Execução
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=ALL_ROWS (Cost=2 Card=27 Bytes=486)
+   1    0   TABLE ACCESS (FULL) OF 'DEPARTMENTS' (TABLE) (Cost=2 Card=27 Bytes=486)

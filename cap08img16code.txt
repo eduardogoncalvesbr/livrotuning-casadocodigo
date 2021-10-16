@@ -1,0 +1,20 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 1343509718
+
+--------------------------------------------------------------------------------------------
+| Id  | Operation                    | Name        | Rows  | Bytes | Cost (%CPU)| Time     |
+--------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |             |   106 |  9540 |     6  (17)| 00:00:01 |
+|   1 |  MERGE JOIN                  |             |   106 |  9540 |     6  (17)| 00:00:01 |
+|   2 |   TABLE ACCESS BY INDEX ROWID| DEPARTMENTS |    27 |   567 |     2   (0)| 00:00:01 |
+|   3 |    INDEX FULL SCAN           | DEPT_ID_PK  |    27 |       |     1   (0)| 00:00:01 |
+|*  4 |   SORT JOIN                  |             |   107 |  7383 |     4  (25)| 00:00:01 |
+|   5 |    TABLE ACCESS FULL         | EMPLOYEES   |   107 |  7383 |     3   (0)| 00:00:01 |
+--------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   4 - access("E"."DEPARTMENT_ID"="D"."DEPARTMENT_ID")
+       filter("E"."DEPARTMENT_ID"="D"."DEPARTMENT_ID")

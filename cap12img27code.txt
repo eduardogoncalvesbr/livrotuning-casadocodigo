@@ -1,0 +1,23 @@
+Rows (1st) Rows (avg) Rows (max)  Row Source Operation
+---------- ---------- ----------  ---------------------------------------------------
+      5729       5729       5729  SORT ORDER BY (cr=4694 pr=4672 pw=0 time=277548 us cost=2654 size=696399 card=14817)
+      5729       5729       5729   HASH GROUP BY (cr=4694 pr=4672 pw=0 time=269428 us cost=2654 size=696399 card=14817)
+      5729       5729       5729    HASH JOIN  (cr=4694 pr=4672 pw=0 time=267984 us cost=2301 size=696399 card=14817)
+      1075       1075       1075     TABLE ACCESS FULL EMPLOYEES (cr=17 pr=0 pw=0 time=786 us cost=6 size=22575 card=1075)
+      5729       5729       5729     VIEW  VW_GBC_9 (cr=4677 pr=4672 pw=0 time=265985 us cost=2294 size=385242 card=14817)
+      5729       5729       5729      HASH GROUP BY (cr=4677 pr=4672 pw=0 time=265347 us cost=2294 size=503778 card=14817)
+    288760     288760     288760       HASH JOIN  (cr=4677 pr=4672 pw=0 time=144421 us cost=1278 size=9817840 card=288760)
+        23         23         23        TABLE ACCESS FULL LOCATIONS (cr=2 pr=0 pw=0 time=13 us cost=2 size=276 card=23)
+    288760     288760     288760        TABLE ACCESS FULL TIMESHEET (cr=4675 pr=4672 pw=0 time=65918 us cost=1275 size=6352720 card=288760)
+
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                     383        0.00          0.00
+  Disk file operations I/O                        1        0.01          0.01
+  direct path read                               11        0.00          0.00
+  asynch descriptor resize                        4        0.00          0.00
+  SQL*Net message from client                   383       27.14         45.58
+********************************************************************************
+...

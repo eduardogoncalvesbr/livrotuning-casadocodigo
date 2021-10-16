@@ -1,0 +1,5 @@
+Plano de Execução
+----------------------------------------------------------
+   0      SELECT STATEMENT Optimizer=RULE
+   1    0   TABLE ACCESS (BY INDEX ROWID) OF 'DEPARTMENTS' (TABLE)
+   2    1     INDEX (UNIQUE SCAN) OF 'DEPT_ID_PK' (INDEX (UNIQUE))

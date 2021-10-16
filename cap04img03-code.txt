@@ -1,0 +1,13 @@
+Segue o resultado gerado pelo TKPROF:
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        2      4.53       4.59          0    1004973          0           5
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        4      4.53       4.59          0    1004973          0           5
+
+Misses in library cache during parse: 0
+Optimizer mode: RULE
+Parsing user id: 41  (TTUN1)

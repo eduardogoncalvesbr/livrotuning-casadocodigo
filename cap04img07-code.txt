@@ -1,0 +1,13 @@
+O resultado gerado pelo TKPROF:
+
+call     count    cpu     elapsed       disk      query     current    rows
+-------  ------  -------- ---------- ---------- ----------  --------   ----
+Parse        1     0.10     0.12          0          1          0         0
+Execute      1     0.00     0.00          0          0          0         0
+Fetch    33335    38.73   116.44       5143      72482          0    500000
+-------  ------ --------- ---------- ---------- ----------  -------- ------
+total    33337    38.83   116.56       5143      72483          0    500000
+
+Misses in library cache during parse: 1
+Optimizer goal: RULE
+Parsing user id: 61 

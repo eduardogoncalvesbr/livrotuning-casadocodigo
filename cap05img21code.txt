@@ -1,0 +1,30 @@
+Execution Plan
+--------------------------------------------------------------------------------------------
+| Id  | Operation                         | Name         | Rows |Bytes|Cost(%CPU)| Time    |
+--------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT                  |              |    1 |  166|   3  (34)| 00:00:01|
+|   1 |  HASH GROUP BY                    |              |    1 |  166|   3  (34)| 00:00:01|
+|   2 |   NESTED LOOPS                    |              |      |     |          |         |
+|   3 |    NESTED LOOPS                   |              |    1 |  166|   2   (0)| 00:00:01|
+|   4 |     NESTED LOOPS                  |              |    1 |  151|   2   (0)| 00:00:01|
+|   5 |      NESTED LOOPS                 |              |    1 |  111|   2   (0)| 00:00:01|
+|   6 |       NESTED LOOPS                |              |    1 |   86|   2   (0)| 00:00:01|
+|   7 |        TABLE ACCESS FULL          | SALES        |    1 |   61|   2   (0)| 00:00:01|
+|   8 |        TABLE ACCESS BY INDEX ROWID| CHANNELS     |    1 |   25|   0   (0)| 00:00:01|
+|*  9 |         INDEX UNIQUE SCAN         | CHANNELS_PK  |    1 |     |   0   (0)| 00:00:01|
+|  10 |       TABLE ACCESS BY INDEX ROWID | CUSTOMERS    |    1 |   25|   0   (0)| 00:00:01|
+|* 11 |        INDEX UNIQUE SCAN          | CUSTOMERS_PK |    1 |     |   0   (0)| 00:00:01|
+|  12 |      TABLE ACCESS BY INDEX ROWID  | PRODUCTS     |    1 |   40|   0   (0)| 00:00:01|
+|* 13 |       INDEX UNIQUE SCAN           | PRODUCTS_PK  |    1 |     |   0   (0)| 00:00:01|
+|* 14 |     INDEX UNIQUE SCAN             | TIMES_PK     |    1 |     |   0   (0)| 00:00:01|
+|  15 |    TABLE ACCESS BY INDEX ROWID    | TIMES        |    1 |   15|   0   (0)| 00:00:01|
+--------------------------------------------------------------------------------------------
+Predicate Information (identified by operation id):
+---------------------------------------------------
+   9 - access("PS"."CHANNEL_ID"="C"."CHANNEL_ID")
+  11 - access("PS"."CUST_ID"="CR"."CUST_ID")
+  13 - access("PS"."PROD_ID"="P"."PROD_ID")
+  14 - access("T"."TIME_ID"="PS"."TIME_ID")
+Note
+-----
+   - dynamic sampling used for this statement (level=2

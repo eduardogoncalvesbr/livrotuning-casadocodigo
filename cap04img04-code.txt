@@ -1,0 +1,16 @@
+Plano de Execução:
+
+Rows     Execution Plan
+-------  ---------------------------------------------------
+      0  SELECT STATEMENT   MODE: RULE
+      5   NESTED LOOPS
+      5    VIEW
+      5     COUNT (STOPKEY)
+      5      VIEW
+      5       SORT (ORDER BY STOPKEY)
+    284        NESTED LOOPS
+1000000         TABLE ACCESS (FULL) OF 'TIMESHEET' (TABLE)
+    284         TABLE ACCESS (BY INDEX ROWID) OF 'EMPLOYEES' (TABLE)
+    284          INDEX (UNIQUE SCAN) OF 'EMP_EMP_ID_PK' (INDEX (UNIQUE))
+      5    TABLE ACCESS (BY INDEX ROWID) OF 'LOCATIONS' (TABLE)
+      5     INDEX (UNIQUE SCAN) OF 'LOC_ID_PK' (INDEX (UNIQUE))

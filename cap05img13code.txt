@@ -1,0 +1,21 @@
+Execution Plan
+----------------------------------------------------------------------------
+| Id  | Operation              |  Name        | Rows  | Bytes | Cost (%CPU)|
+----------------------------------------------------------------------------
+|   0 | SELECT STATEMENT       |              |   144 |  4608 |    16  (32)|
+|   1 |  HASH GROUP BY         |              |   144 |  4608 |    16  (32)|
+|*  2 |   HASH JOIN OUTER      |              |   663 | 21216 |    15  (27)|
+|*  3 |    TABLE ACCESS FULL   | CUSTOMERS    |   195 |  2925 |     6  (17)|
+|   4 |    VIEW                | V_ORDERS     |   665 | 11305 |            |
+|   5 |     HASH GROUP BY      |              |   665 | 15960 |     9  (34)|
+|*  6 |      HASH JOIN         |              |   665 | 15960 |     8  (25)|
+|*  7 |       TABLE ACCESS FULL| ORDERS       |   105 |   840 |     4  (25)|
+|   8 |       TABLE ACCESS FULL| ORDER_ITEMS  |   665 | 10640 |     4  (25)|
+----------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+   2 - access("O"."CUSTOMER_ID"(+)="C"."CUSTOMER_ID")
+   3 - filter("C"."CREDIT_LIMIT">2000)
+   6 - access("O"."ORDER_ID"="L"."ORDER_ID")
+   7 - filter("O"."CUSTOMER_ID">0)

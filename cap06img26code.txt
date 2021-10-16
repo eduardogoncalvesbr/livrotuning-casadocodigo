@@ -1,0 +1,18 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 407010018
+
+--------------------------------------------------------------------------------------------
+| Id  | Operation                   | Name          | Rows | Bytes | Cost (%CPU)| Time     |
+--------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT             |              |    2 |   138 |     2   (0)| 00:00:01 |
+|*  1 |  FILTER                      |              |      |       |            |          |
+|   2 |   TABLE ACCESS BY INDEX ROWID| EMPLOYEES    |    2 |   138 |     2   (0)| 00:00:01 |
+|*  3 |    INDEX RANGE SCAN          | EMP_EMP_ID_PK|    2 |       |     1   (0)| 00:00:01 |
+--------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   1 - filter(TO_NUMBER(:LOW_E)<=TO_NUMBER(:HIGH_E))
+   3 - access("EMPLOYEE_ID">=TO_NUMBER(:LOW_E) AND "EMPLOYEE_ID"<=TO_NUMBER(:HIGH_E))

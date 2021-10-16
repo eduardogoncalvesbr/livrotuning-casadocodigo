@@ -1,0 +1,24 @@
+Execution Plan
+----------------------------------------------------------
+Plan hash value: 3122951222
+
+-------------------------------------------------------------------------------------------
+| Id  | Operation             | Name              | Rows  | Bytes | Cost (%CPU)| Time     |
+-------------------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT      |                   |   124 |  3224 |     4  (25)| 00:00:01 |
+|   1 |  SORT ORDER BY        |                   |   124 |  3224 |     4  (25)| 00:00:01 |
+|   2 |   VIEW                |                   |   124 |  3224 |     3   (0)| 00:00:01 |
+|   3 |    UNION-ALL          |                   |       |       |            |          |
+|   4 |     NESTED LOOPS OUTER|                   |   107 |  1177 |     2   (0)| 00:00:01 |
+|   5 |      TABLE ACCESS FULL| EMPLOYEES         |   107 |   749 |     2   (0)| 00:00:01 |
+|*  6 |      INDEX UNIQUE SCAN| DEPT_ID_PK        |     1 |     4 |     0   (0)| 00:00:01 |
+|   7 |     NESTED LOOPS ANTI |                   |    17 |   119 |     1   (0)| 00:00:01 |
+|   8 |      INDEX FULL SCAN  | DEPT_ID_PK        |    27 |   108 |     1   (0)| 00:00:01 |
+|*  9 |      INDEX RANGE SCAN | EMP_DEPARTMENT_IX |    41 |   123 |     0   (0)| 00:00:01 |
+-------------------------------------------------------------------------------------------
+
+Predicate Information (identified by operation id):
+---------------------------------------------------
+
+   6 - access("E"."DEPARTMENT_ID"="D"."DEPARTMENT_ID"(+))
+   9 - access("E"."DEPARTMENT_ID"="D"."DEPARTMENT_ID")
