@@ -64,12 +64,12 @@ Se você escolher a alternativa 1) ou 2), depois do acesso ao banco de dados est
 3) Agora baixe e extraia o conteúdo dos arquivos "base_SCOTT.zip" e "base_HR.zip" no diretório raiz da sua máquina (C:\).
 
 
-4) Abra o SQL*Plus e conecte com o usuário TSQL, criado no passo 1.
+4) Abra o SQL*Plus e conecte com o usuário ttun, criado no passo 1.
 
-	conn TSQL/TSQL@XE
+	conn ttun/ttun@XE
 
 	Obs.: Aqui eu estou conectando na instancia padrão do Oracle XE chamada XE. Caso você esteja utilizando outra versão de banco ou outra instância, altere a linha de comando antes de executar.
-	Para confirmar se você esta, realmente, conectado no usuário, execute o comando “SHOW USER” e dê um “Enter”. Ele deve mostrar o nosso usuário TSQL.
+	Para confirmar se você esta, realmente, conectado no usuário, execute o comando “SHOW USER” e dê um “Enter”. Ele deve mostrar o nosso usuário ttun.
 
 5) Execute a seguinte linha de comando no SQL*Plus para criar a base SCOTT (conteúdo extraído do arquivo "base_SCOTT.zip"):
 
